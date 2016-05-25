@@ -2,37 +2,36 @@ var request = require('request');
 var cheerio = require('cheerio');
 var iconv = require('iconv-lite');
 var requrl = 'http://www.leiphone.com/feed';
-request(requrl, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    // console.log(body);    //返回请求页面的HTML
-    acquireData(body);
+request(requrl, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // console.log(body);    //返回请求页面的HTML
+        acquireData(body);
     }
 })
 
 function acquireData(data) {
-    var $ = cheerio.load(data);  //cheerio解析data
-      
-    $('item').each(function (idx, element) {
-		// var $element = $(element);
-        // console.log($element);
+    var $ = cheerio.load(data); //cheerio解析data
 
-        var $category = $('category',element);
-        console.log($category.text());
+    $('item').each(function(idx, element) {
+        // var $element = $(element);
+        //       console.log($element);
 
-        var $title=$('title',element);
-        console.log($title.text());
+        // var $category = $('category',element);
+        // console.log($category.text());
 
-        var $link=$('link',element);
-        $link.
-        console.log($link.text()+"ddd");
+        // var $title=$('title',element);
+        // console.log($title.text());
 
-        var $description=$('description',element);
-        console.log($description.html());
+        var $link = $('link', element);
+        console.log($link);
 
-         var $pubDate=$('pubDate',element);
-        console.log($pubDate.html());
+        // var $description=$('description',element);
+        // console.log($description.html());
 
-        var $comments=$('comments',element);
-        console.log($comments.html()+"\n");
+        //  var $pubDate=$('pubDate',element);
+        // console.log($pubDate.html());
+
+        // var $comments=$('comments',element);
+        // console.log($comments.html()+"\n");
     });
 }
