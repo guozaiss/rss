@@ -16,6 +16,7 @@
     "ortoo-feedparser": "*",
     "superagent": "*",
     "cheerio": "*",
-    "eventproxy": "*"
+    "eventproxy": "*",
+    "mysql": "*"
   }
 }
