@@ -17,6 +17,9 @@
     "superagent": "*",
     "cheerio": "*",
     "eventproxy": "*",
+    "mysql": "*",
+    "cheerio": "*",
+    "eventproxy": "*",
     "mysql": "*"
   }
 }
