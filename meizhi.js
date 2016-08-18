@@ -5,7 +5,7 @@ var path = require('path');
 var downpath = 'C:/Users/Admin/Desktop/images/';
 var hhh = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36";
 var options = {
-    url: 'http://jandan.net/ooxx/page-1923',
+    url: 'http://jandan.net/ooxx/page-1924',
     headers: {
         'Host': 'jandan.net',
         'Connection': 'Keep-Alive',
@@ -13,7 +13,8 @@ var options = {
     }
 };
 var repeatTime = 1000;
-var timeout = setInterval(function() { //每repeatTime毫秒执行一次
+// setInterval(callback, repeat);//重复执行
+var timeout = setTimeout(function() { //执行一次
     getNetWorkSource();
 }, repeatTime);
 

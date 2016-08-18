@@ -20,6 +20,8 @@
     "mysql": "*",
     "cheerio": "*",
     "eventproxy": "*",
-    "mysql": "*"
+    "mysql": "*",
+    "request":"*",
+    "async":"*"
   }
 }
