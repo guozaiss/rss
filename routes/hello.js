@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
+/* GET home page. */
+router.post('/', function(req, res) {
+    var id = req.body.id;
     var mysql = require('mysql');
     var async = require('async');
     var conn = mysql.createConnection({
@@ -13,10 +14,13 @@ router.get('/', function(req, res, next) {
         port: 3306
     });
     conn.connect();
-    conn.query("select * from sss", function(err, ress) {
-        res.send(ress[0]);
+    conn.query("select * from tb_meizhi where id="+id, function(err, ress) {
+        if (err) {
+            res.send("error");
+        }
+
+        res.send(ress);
     });
     conn.end();
 });
-
 module.exports = router;
