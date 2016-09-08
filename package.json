@@ -22,6 +22,7 @@
     "eventproxy": "*",
     "mysql": "*",
     "request":"*",
-    "async":"*"
+    "async":"*",
+    "child_process":"*"
   }
 }
