@@ -12,10 +12,10 @@ var options;
 var repeatTime = 3000;
 
 var isExistTime = 1000;
-// setInterval(callback, repeat);//重复执行
+// setInterval setTimeout
 var timeout = setInterval(function() { //执行一次
     if (isExistTime <= 0) {
-        console.log("取消");
+        console.log("取消，当前位置-->" + options.url);
         clearInterval(timeout);
         return;
     }
@@ -37,7 +37,6 @@ var timeout = setInterval(function() { //执行一次
 
 //获取网络资源
 function getNetWorkSource() {
-    console.log(options.headers);
     request(options, function(error, response, body) {
         console.log('statusCode-->' + response.statusCode);
         if (!error && response.statusCode == 200) {
@@ -57,7 +56,7 @@ function getNetWorkSource() {
 function acquireData(data) {
     var $ = cheerio.load(data);
     var meizi = $('div.row').toArray();
-    console.log('数量-->'+meizi.length);
+    console.log('数量-->' + meizi.length);
     var len = meizi.length;
     for (var i = 0; i < len; i++) {
         var row = meizi[i];

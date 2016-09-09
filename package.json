@@ -23,6 +23,7 @@
     "mysql": "*",
     "request":"*",
     "async":"*",
-    "child_process":"*"
+    "child_process":"*",
+    "domain":"*"
   }
 }

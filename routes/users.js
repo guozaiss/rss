@@ -1,22 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('../libs/mysql');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    var mysql = require('mysql');
-    var async = require('async');
-    var conn = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '123456',
-        database: 'meizhi',
-        port: 3306
+
+    mysql.find("select * from showpersondetails", function(err, ress) {
+        if (err) {
+            res.send("数据查询失败...");
+            return;
+        }
+        console.log('返回结果↓↓↓');
+        res.send(ress);
     });
-    conn.connect();
-    conn.query("select * from sss", function(err, ress) {
-        res.send(ress[0]);
+
+    process.on('uncaughtException', function(err) {
+        res.send('出现异常，异常信息为：' + err);
     });
-    conn.end();
 });
 
 module.exports = router;
