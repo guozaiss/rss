@@ -17,11 +17,13 @@ var index = 0;
 exports.find = function(sql, callback) {
     createConnection();
     conn.connect();
+    console.log(sql);
     conn.query(sql, function(err, res) {
         if (typeof(res) == "undefined") {
             console.log("返回数据为空！");
             callback(true, "");
         } else {
+            console.log(res);
             callback(false, res);
         }
     });

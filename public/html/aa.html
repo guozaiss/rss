@@ -3,30 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>测试页面</title>
 </head>
 
 <body>
     <div id="dd"></div>
+    <input type="text" name="sssss" value="aaaaaaaaa">
     <script type="text/javascript">
-    document.getElementById('dd').innerHTML = "sss";
-    var mysql = require('mysql');
-    var async = require('async');
-    var conn = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '123456',
-        database: 'meizhi',
-        port: 3306
+    document.getElementById('dd').innerHTML = 'res';
+    var mysql = require('../libs/mysq');
+    mysql.find("123", function(error, res) {
+        document.getElementById('dd').innerHTML = res;
     });
-    conn.connect();
-    conn.query("select * from showAllTb_meizhi", function(err, res) {
-        if (err) {
-            document.getElementById('dd').innerHTML = "sss";
-        }
-         document.getElementById('dd').innerHTML = "sss";
-    });
-    conn.end();
     </script>
 </body>
 
